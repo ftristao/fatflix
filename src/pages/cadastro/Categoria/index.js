@@ -80,7 +80,7 @@ function CadastroCategoria() {
         />
 
         <FormField
-          label="Color"
+          label="Cor"
           type="color"
           name="color"
           value={values.color}

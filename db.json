@@ -3,10 +3,37 @@
     "categorias": [
       {
         "id": 1,
-        "titulo": "Front End",
+        "titulo": "Leites veganos",
+        "cor": "#6b5be2",
+        "link_extra": {
+          "text": "Receitas de leites veganos",
+          "url": "https://www.alura.com.br/cursos-online-front-end"
+        }
+      },
+      {
+        "id": 2,
+        "titulo": "Hamburguers veganos",
         "cor": "#6BD1FF",
         "link_extra": {
-          "text": "Formação de Front End na Alura",
+          "text": "Receitas de hamburgers veganos",
+          "url": "https://www.alura.com.br/cursos-online-front-end"
+        }
+      },
+      {
+        "id": 3,
+        "titulo": "Queijos veganos",
+        "cor": "#00C86F",
+        "link_extra": {
+          "text": "Como fazer queijo de vegetais",
+          "url": "https://www.alura.com.br/cursos-online-front-end"
+        }
+      },
+      {
+        "id": 4,
+        "titulo": "Sobremesas veganas",
+        "cor": "#9cd33b",
+        "link_extra": {
+          "text": "Receitas de hamburgers veganos",
           "url": "https://www.alura.com.br/cursos-online-front-end"
         }
       }
@@ -15,8 +42,31 @@
       {
         "id": 1,
         "categoriaId": 1,
-        "titulo": "SEO com React",
-        "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
+        "titulo": "Leites vegetais!",
+        "url": "https://youtu.be/mz85U-lxFhg"
+      },
+      {
+        "id": 5,
+        "categoriaId": 1,
+        "titulo": "Aprenda a fazer tofu!",
+        "url": "https://youtu.be/u-USne7ZA_A"
+      },      {
+        "id": 2,
+        "categoriaId": 2,
+        "titulo": "Hamburgers veganos!",
+        "url": "https://youtu.be/rHCpjMrcxf0"
+      },
+      {
+        "id": 3,
+        "categoriaId": 3,
+        "titulo": "Queijos veganos!",
+        "url": "https://youtu.be/xd_YOXdIgJU"
+      },
+      {
+        "id": 4,
+        "categoriaId": 4,
+        "titulo": "Chocolate caseiro",
+        "url": "https://youtu.be/LTnsOBdtlRA"
       }
     ]
   }
