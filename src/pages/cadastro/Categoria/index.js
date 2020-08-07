@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -25,24 +24,6 @@ function CadastroCategoria() {
           ...resposta,
         ]);
       });
-
-  //  setTimeout(() => {
-  //    setCategorias([
-  //      ...categorias,
-  //      {
-  //        id: 1,
-  //        name: 'Front End',
-  //        description: 'Parte do cliente',
-  //        color: '#cbd1ff',
-  //      },
-  //      {
-  //        id: 2,
-  //        name: 'Back End',
-  //        description: 'Parte do servidor',
-  //        color: '#cbd1ff',
-  //      },
-  //    ]);
-  //  }, 4 * 1000);
   }, []);
 
   return (
@@ -91,25 +72,6 @@ function CadastroCategoria() {
           Cadastrar
         </Button>
       </form>
-
-      {categorias.length === 0 && (
-      <div>
-        {/* carregando... */}
-        Loading...
-      </div>
-      )}
-
-      <ul>
-        {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-      </ul>
-
-      <Link to="/">
-        Ir para a Home
-      </Link>
     </PageDefault>
   );
 }

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import useForm from '../../../hooks/useForms';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import videosRepository from '../../../repositories/videos';
-import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroVideo() {
   const history = useHistory();
-  const [categorias, setCategorias] = useState([]);
+  const [categorias] = useState([]);
   const categoryTitles = categorias.map(({ titulo }) => titulo);
   const { handleChange, values } = useForm({
     titulo: '',
@@ -17,14 +16,14 @@ function CadastroVideo() {
     categoria: '',
   });
 
-  useEffect(() => {
+  /* useEffect(() => {
     categoriasRepository
       .getAll()
       .then((categoriasFromServer) => {
         setCategorias(categoriasFromServer);
       });
   }, []);
-
+*/
   return (
     <PageDefault>
       <h1>Cadastro de Video</h1>
@@ -73,6 +72,9 @@ function CadastroVideo() {
       </form>
 
       <br />
+      <Button as={Link} className="ButtonLink" to="/cadastro/categoria">
+        Nova Categoria
+      </Button>
       <br />
     </PageDefault>
   );

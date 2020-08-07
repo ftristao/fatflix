@@ -26,12 +26,13 @@ function Home() {
 
       {dadosIniciais.map((categoria, indice) => {
         if (indice === 0) {
+          const random = Math.floor(Math.random() * (dadosIniciais.length - 0) + 0);
           return (
             <div key={categoria.id}>
               <BannerMain
-                videoTitle={dadosIniciais[0].videos[0].titulo}
-                url={dadosIniciais[0].videos[0].url}
-                videoDescription={dadosIniciais[0].videos[0].description}
+                videoTitle={dadosIniciais[random].videos[0].titulo}
+                url={dadosIniciais[random].videos[0].url}
+                videoDescription={dadosIniciais[random].videos[0].description}
               />
               <Carousel
                 ignoreFirstVideo
