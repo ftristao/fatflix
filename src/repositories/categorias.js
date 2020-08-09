@@ -1,8 +1,10 @@
+/* eslint-disable no-console */
 import config from '../config';
 
 const urlCategories = `${config.url}/categorias`;
 
 function getAllWithVideos() {
+  console.log(`url= ${urlCategories}`);
   return fetch(`${urlCategories}?_embed=videos`)
     .then(async (respostaDoServidor) => {
       if (respostaDoServidor.ok) {

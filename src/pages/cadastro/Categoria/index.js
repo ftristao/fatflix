@@ -41,6 +41,7 @@ function CadastroCategoria() {
         ]);
 
         clearForm();
+        
       }}
       >
 
