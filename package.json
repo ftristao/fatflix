@@ -21,6 +21,7 @@
     "dev": "concurrently \"react-scripts start\" \"node ./server.js\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build": "react-scripts build",
     "server:static": "json-server --watch ./src/data/db.json --port 8080",
     "server": "node ./server.js"
   },
