@@ -1,0 +1,59 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo da Velha</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="./source.js"></script>
+</head>
+<body width=100% height="100%" >
+    <section id="interface">
+        <div id="jogador">
+            Vez de: <img id="imgturn" align="center" height="45px"src="img/x.png">
+        </div>
+        <table border="1" id="tabuleiro">
+            <!-- Deixo os src´s vazios para adiciona-los dinamicamente no JavaScript -->
+            <!-- linha 1 -->
+            <tr>
+                <td id="00" onclick="move(this)">
+                    <img align="center" height="80px" src=""> 
+                </td> 
+                <td id="01" onclick="move(this)">
+                    <img align="center" height="80px" src=""> 
+                </td>
+                <td id="02" onclick="move(this)"> 
+                    <img align="center" height="80px" src=""> 
+                </td>
+            </tr>
+            <!-- linha 2 -->
+            <tr> 
+                <td id="10" onclick="move(this)">    
+                    <img align="center" height="80px" src=""> 
+                </td>
+                <td id="11" onclick="move(this)">   
+                    <img align="center" height="80px" src=""> 
+                </td>
+                <td id="12" onclick="move(this)">  
+                    <img align="center" height="80px" src=""> 
+                </td>
+            </tr>
+            <!-- linha 3 -->
+            <tr>
+                <td id="20" onclick="move(this)">
+                    <img align="center" height="80px" src="">
+                </td>
+                <td id="21" onclick="move(this)">   
+                    <img align="center" height="80px" src="">
+                </td>
+                <td id="22" onclick="move(this)">   
+                    <img align="center" height="80px" src=""
+                </td>
+            </tr>
+        </table>
+    </section>
+<footer>
+   Feito por <a href="https://github.com/Yurematias">YureMatias</a> e modificado por <a href="https://github.com/ftristao">mim</a>
+</footer>
+</body>
+</html>

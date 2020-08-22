@@ -35,6 +35,7 @@ function CadastroVideo() {
         event.preventDefault();
         // alert('Vídeo cadastrado com sucesso!!!');
 
+        // eslint-disable-next-line max-len
         const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria);
 
         videosRepository.create({
