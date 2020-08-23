@@ -151,7 +151,6 @@ function minhaVez(l, c) {
     if (minhasChancesV.length === 1) minhasChances = [...minhasChances, ...minhasChancesV];
     if (minhasChancesD1.length === 1) minhasChances = [...minhasChances, ...minhasChancesD1];
     if (minhasChancesD2.length === 1) minhasChances = [...minhasChances, ...minhasChancesD2];
-    // minhasChances = [...minhasChancesH, ...minhasChancesV, ...minhasChancesD1, ...minhasChancesD2];
     // Caso não tenha sobrado nada, recria matriz com todas as possibilidades
     if (minhasChances.length === 0) {
       for (let i = 0; i < 3; i++) {
