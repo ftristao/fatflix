@@ -146,8 +146,12 @@ function minhaVez(l, c) {
       if (board[a][b] === 'X') minhasChancesD2.splice(n, 1);
       if (board[a][b] === 'círculo') minhasChancesD2 = [];
     }
-    // Agrupa possibilidades restantes
-    minhasChances = [...minhasChancesH, ...minhasChancesV, ...minhasChancesD1, ...minhasChancesD2];
+    // Agrupa possibilidades restantes, dando peso a linha faltando apenas 1
+    if (minhasChancesH.length === 1) minhasChances = [...minhasChancesH];
+    if (minhasChancesV.length === 1) minhasChances = [...minhasChances, ...minhasChancesV];
+    if (minhasChancesD1.length === 1) minhasChances = [...minhasChances, ...minhasChancesD1];
+    if (minhasChancesD2.length === 1) minhasChances = [...minhasChances, ...minhasChancesD2];
+    // minhasChances = [...minhasChancesH, ...minhasChancesV, ...minhasChancesD1, ...minhasChancesD2];
     // Caso não tenha sobrado nada, recria matriz com todas as possibilidades
     if (minhasChances.length === 0) {
       for (let i = 0; i < 3; i++) {
@@ -196,4 +200,5 @@ function restart() {
   const result = document.querySelector('div#result');
   document.body.querySelector('section#interface').removeChild(result);
   document.body.querySelector('section#interface').removeChild(button);
+  document.getElementById('jogador').innerHTML = "Sua vez <img id='imgturn' align='center' height='45px' src='img/x.png'></img>!";
 }
