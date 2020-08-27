@@ -4,37 +4,29 @@
       "id": 1,
       "titulo": "Leites veganos",
       "cor": "#6b5be2",
-      "link_extra": {
-        "text": "Receitas de leites veganos",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
+      "descricao": "Receitas de leites veganos",
+      "url": "https://www.alura.com.br/cursos-online-front-end"
     },
     {
       "id": 2,
       "titulo": "Hamburguers veganos",
       "cor": "#6BD1FF",
-      "link_extra": {
-        "text": "Receitas de hamburgers veganos",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
-    },
+      "descricao": "Receitas de hamburgers veganos",
+      "url": "https://www.alura.com.br/cursos-online-front-end"
+      },
     {
       "id": 3,
       "titulo": "Queijos veganos",
       "cor": "#00C86F",
-      "link_extra": {
-        "text": "Como fazer queijo de vegetais",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
+      "descricao": "Como fazer queijo de vegetais",
+      "url": "https://www.alura.com.br/cursos-online-front-end"
     },
     {
       "id": 4,
       "titulo": "Sobremesas veganas",
       "cor": "#9cd33b",
-      "link_extra": {
-        "text": "Receitas de hamburgers veganos",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
+      "descricao": "Receitas de hamburgers veganos",
+      "url": "https://www.alura.com.br/cursos-online-front-end"
     }
   ],
   "videos": [

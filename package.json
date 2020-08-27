@@ -14,8 +14,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.1",
+    "react-toastify": "^6.0.8",
     "styled-components": "^5.1.1",
-    "react-toastify": "^6.0.8"
+    "uuidv4": "^6.2.1"
   },
   "scripts": {
     "start": "node ./server.js",

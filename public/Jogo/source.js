@@ -6,6 +6,7 @@
 let turn = 'X';
 let board = [[], [], []];
 let nivel = 0;
+let movFinal = '';
 // muda o turno
 function switchTurn() {
   turn = (turn === 'X') ? 'círculo' : 'X';
@@ -58,7 +59,27 @@ function createTags() {
   document.body.querySelector('section#interface').appendChild(result);
   document.body.querySelector('section#interface').appendChild(button);
 }
-//
+// Elimina linhas onde não há possibilidade de jogada
+function eliminaPossibilidades(listaIn) {
+  let lista = listaIn;
+  if (lista.length > 0) {
+    const a = lista[0].split('')[0];
+    const b = lista[0].split('')[1];
+    const c = lista[1].split('')[0];
+    const d = lista[1].split('')[1];
+    if (board[a][b] === 'círculo' || board[c][d] === 'círculo') {
+      lista = [];
+    } else if (board[a][b] === 'X') {
+      lista.splice(0, 1);
+      if (board[c][d] == null) movFinal = `${c}${d}`;
+    } else if (board[c][d] === 'X') {
+      lista.splice(1, 1);
+      if (board[a][b] == null) movFinal = `${a}${b}`;
+    }
+  }
+  return lista;
+}
+// Minha vez!
 function minhaVez(l, c) {
   let minhasChances = [];
   let minhasChancesV = [];
@@ -66,6 +87,8 @@ function minhaVez(l, c) {
   let minhasChancesD1 = [];
   let minhasChancesD2 = [];
   let fullTest = 1;
+  let linha = 0;
+  let coluna = 0;
   const posAnterior = `${l}${c}`;
   switchTurn();
   if (nivel === 1) {
@@ -119,51 +142,37 @@ function minhaVez(l, c) {
         minhasChancesD1 = ['00', '11'];
     }
     // Elimina impossibilidades na horizontal
-    for (let n = 0; n < minhasChancesH.length; n++) {
-      const a = minhasChancesH[n].split('')[0];
-      const b = minhasChancesH[n].split('')[1];
-      if (board[a][b] === 'círculo') minhasChancesH = [];
-      if (board[a][b] === 'X') minhasChancesH.splice(n, 1);
-    }
+    minhasChancesH = eliminaPossibilidades(minhasChancesH);
     // Elimina impossibilidades na vertical
-    for (let n = 0; n < minhasChancesV.length; n++) {
-      const a = minhasChancesV[n].split('')[0];
-      const b = minhasChancesV[n].split('')[1];
-      if (board[a][b] === 'X') minhasChancesV.splice(n, 1);
-      if (board[a][b] === 'círculo') minhasChancesV = [];
-    }
+    minhasChancesV = eliminaPossibilidades(minhasChancesV);
     // Elimina impossibilidades na Diagonal1
-    for (let n = 0; n < minhasChancesD1.length; n++) {
-      const a = minhasChancesD1[n].split('')[0];
-      const b = minhasChancesD1[n].split('')[1];
-      if (board[a][b] === 'X') minhasChancesD1.splice(n, 1);
-      if (board[a][b] === 'círculo') minhasChancesD1 = [];
-    }
+    minhasChancesD1 = eliminaPossibilidades(minhasChancesD1);
     // Elimina impossibilidades na Diagonal2
-    for (let n = 0; n < minhasChancesD2.length; n++) {
-      const a = minhasChancesD2[n].split('')[0];
-      const b = minhasChancesD2[n].split('')[1];
-      if (board[a][b] === 'X') minhasChancesD2.splice(n, 1);
-      if (board[a][b] === 'círculo') minhasChancesD2 = [];
-    }
-    // Agrupa possibilidades restantes, dando peso a linha faltando apenas 1
-    if (minhasChancesH.length === 1) minhasChances = [...minhasChancesH];
-    if (minhasChancesV.length === 1) minhasChances = [...minhasChances, ...minhasChancesV];
-    if (minhasChancesD1.length === 1) minhasChances = [...minhasChances, ...minhasChancesD1];
-    if (minhasChancesD2.length === 1) minhasChances = [...minhasChances, ...minhasChancesD2];
-    // Caso não tenha sobrado nada, recria matriz com todas as possibilidades
-    if (minhasChances.length === 0) {
-      for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-          if (board[i][j] == null) minhasChances.push(`${i}${j}`);
+    minhasChancesD2 = eliminaPossibilidades(minhasChancesD2);
+    // Se existe movimento final e não é a primeira jogada, termina!
+    if (nivel > 0 && movFinal.length > 0) {
+      linha = movFinal.split('')[0];
+      coluna = movFinal.split('')[1];
+    } else {
+      // Agrupa possibilidades restantes, dando peso a linha faltando apenas 1
+      if (minhasChancesH.length === 1) minhasChances = [...minhasChancesH];
+      if (minhasChancesV.length === 1) minhasChances = [...minhasChances, ...minhasChancesV];
+      if (minhasChancesD1.length === 1) minhasChances = [...minhasChances, ...minhasChancesD1];
+      if (minhasChancesD2.length === 1) minhasChances = [...minhasChances, ...minhasChancesD2];
+      // Caso não tenha sobrado nada, recria matriz com todas as possibilidades
+      if (minhasChances.length === 0) {
+        for (linha = 0; linha < 3; linha++) {
+          for (coluna = 0; coluna < 3; coluna++) {
+            if (board[linha][coluna] == null) minhasChances.push(`${linha}${coluna}`);
+          }
         }
       }
+      const randomPos = Math.floor(Math.random() * (minhasChances.length - 1));
+      linha = minhasChances[randomPos].split('')[0];
+      coluna = minhasChances[randomPos].split('')[1];
     }
-    const randomPos = Math.floor(Math.random() * (minhasChances.length - 1));
-    const i = minhasChances[randomPos].split('')[0];
-    const j = minhasChances[randomPos].split('')[1];
-    document.getElementById(`${i}${j}`).querySelector('img').src = 'img/o.png';
-    board[i][j] = turn;
+    document.getElementById(`${linha}${coluna}`).querySelector('img').src = 'img/o.png';
+    board[linha][coluna] = turn;
   }
   const hasWon = verifyWin();
   if (hasWon || verifyTie()) {
@@ -191,7 +200,8 @@ function move(element) {
 function restart() {
   board = [[], [], []];
   turn = 'X';
-  nivel = 1;
+  nivel += 1;
+  movFinal = '';
   const imgs = document.getElementsByTagName('img');
   // começar do 1 pois o elemento 0 countém a imagem que diz a vez
   for (let i = 1; i < imgs.length; i++) { imgs[i].src = 'img/n.png'; }
