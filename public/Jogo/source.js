@@ -59,6 +59,35 @@ function createTags() {
   document.body.querySelector('section#interface').appendChild(result);
   document.body.querySelector('section#interface').appendChild(button);
 }
+// Verifica minhas chances
+function verificaMinhasChances() {
+  // iniciando em 00
+  if (board[0][0] === 'círculo' && board[0][1] === 'círculo' && board[0][2] == null) movFinal = '02';
+  else if (board[0][1] === 'círculo' && board[0][2] === 'círculo' && board[0][1] == null) movFinal = '01';
+  else if (board[0][2] === 'círculo' && board[0][1] === 'círculo' && board[0][0] == null) movFinal = '00';
+  else if (board[0][0] === 'círculo' && board[1][1] === 'círculo' && board[2][2] == null) movFinal = '22';
+  else if (board[0][0] === 'círculo' && board[2][2] === 'círculo' && board[1][1] == null) movFinal = '11';
+  else if (board[0][2] === 'círculo' && board[1][1] === 'círculo' && board[2][0] == null) movFinal = '20';
+  else if (board[0][2] === 'círculo' && board[2][0] === 'círculo' && board[1][1] == null) movFinal = '11';
+  else if (board[0][0] === 'círculo' && board[1][0] === 'círculo' && board[2][0] == null) movFinal = '20';
+  else if (board[0][0] === 'círculo' && board[2][0] === 'círculo' && board[1][0] == null) movFinal = '10';
+  // iniciando em 20
+  else if (board[2][1] === 'círculo' && board[2][2] === 'círculo' && board[2][0] == null) movFinal = '20';
+  else if (board[2][0] === 'círculo' && board[2][1] === 'círculo' && board[2][2] == null) movFinal = '22';
+  else if (board[2][0] === 'círculo' && board[2][2] === 'círculo' && board[2][1] == null) movFinal = '21';
+  // iniciando em 22
+  else if (board[2][2] === 'círculo' && board[1][1] === 'círculo' && board[0][0] == null) movFinal = '00';
+  else if (board[2][2] === 'círculo' && board[1][2] === 'círculo' && board[0][2] == null) movFinal = '02';
+  else if (board[1][2] === 'círculo' && board[0][2] === 'círculo' && board[2][2] == null) movFinal = '22';
+  // iniciando em 01
+  else if (board[0][1] === 'círculo' && board[1][1] === 'círculo' && board[2][1] == null) movFinal = '21';
+  else if (board[0][1] === 'círculo' && board[2][1] === 'círculo' && board[1][1] == null) movFinal = '11';
+  else if (board[2][1] === 'círculo' && board[1][1] === 'círculo' && board[0][1] == null) movFinal = '01';
+  // iniciando em 10
+  else if (board[1][0] === 'círculo' && board[1][1] === 'círculo' && board[1][2] == null) movFinal = '12';
+  else if (board[1][0] === 'círculo' && board[1][2] === 'círculo' && board[1][1] == null) movFinal = '11';
+  else if (board[1][2] === 'círculo' && board[1][1] === 'círculo' && board[1][0] == null) movFinal = '10';
+}
 // Elimina linhas onde não há possibilidade de jogada
 function eliminaPossibilidades(listaIn) {
   let lista = listaIn;
@@ -141,6 +170,8 @@ function minhaVez(l, c) {
         minhasChancesV = ['12', '02'];
         minhasChancesD1 = ['00', '11'];
     }
+    // Zera movimento final gerado na jogada anterior
+    movFinal = '';
     // Elimina impossibilidades na horizontal
     minhasChancesH = eliminaPossibilidades(minhasChancesH);
     // Elimina impossibilidades na vertical
@@ -149,6 +180,8 @@ function minhaVez(l, c) {
     minhasChancesD1 = eliminaPossibilidades(minhasChancesD1);
     // Elimina impossibilidades na Diagonal2
     minhasChancesD2 = eliminaPossibilidades(minhasChancesD2);
+    // Se não é a primeira jogada, verifica possibilidades de vitoria
+    verificaMinhasChances();
     // Se existe movimento final e não é a primeira jogada, termina!
     if (nivel > 0 && movFinal.length > 0) {
       linha = movFinal.split('')[0];
