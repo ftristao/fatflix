@@ -13,7 +13,7 @@ function getYouTubeId(youtubeURL) {
 
 function VideoCard({ videoTitle, videoURL, categoryColor }) {
   const image = `https://img.youtube.com/vi/${getYouTubeId(videoURL)}/hqdefault.jpg`;
-  const videoId = videoURL.substr(32, 42);
+  const videoId = `${getYouTubeId(videoURL)}`;
   const history = useHistory();
   const navigateTo = () => {
     json.id = videoId;

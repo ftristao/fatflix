@@ -91,7 +91,7 @@ function minhaVez(l, c) {
   let coluna = 0;
   const posAnterior = `${l}${c}`;
   switchTurn();
-  if (nivel === 1) {
+  if (nivel % 2 === 0) {
     if (board[1][1] == null) {
       document.getElementById('11').querySelector('img').src = 'img/o.png';
       board[1][1] = turn;

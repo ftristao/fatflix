@@ -13,7 +13,7 @@
       "cor": "#6BD1FF",
       "descricao": "Receitas de hamburgers veganos",
       "url": "https://www.alura.com.br/cursos-online-front-end"
-      },
+    },
     {
       "id": 3,
       "titulo": "Queijos veganos",
@@ -37,12 +37,6 @@
       "url": "https://youtu.be/mz85U-lxFhg"
     },
     {
-      "id": 5,
-      "categoriaId": 1,
-      "titulo": "Aprenda a fazer tofu!",
-      "url": "https://youtu.be/u-USne7ZA_A"
-    },
-    {
       "id": 2,
       "categoriaId": 2,
       "titulo": "Hamburgers veganos!",
@@ -61,10 +55,10 @@
       "url": "https://youtu.be/LTnsOBdtlRA"
     },
     {
-      "titulo": "Leite de Aveia",
-      "url": "https://youtu.be/DWsaHuHoLI4",
+      "titulo": " Leite de Aveia",
+      "url": " https://youtu.be/DWsaHuHoLI4",
       "categoriaId": 1,
-      "id": 6
+      "id": 5
     }
   ]
 }

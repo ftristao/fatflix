@@ -35,7 +35,7 @@ function Home() {
                 videoDescription={dadosIniciais[random].videos[0].description}
               />
               <Carousel
-                ignoreFirstVideo
+                // ignoreFirstVideo
                 category={dadosIniciais[0]}
               />
             </div>
