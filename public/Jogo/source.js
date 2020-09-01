@@ -181,7 +181,7 @@ function minhaVez(l, c) {
     // Elimina impossibilidades na Diagonal2
     minhasChancesD2 = eliminaPossibilidades(minhasChancesD2);
     // Se não é a primeira jogada, verifica possibilidades de vitoria
-    verificaMinhasChances();
+    if (nivel > 0) verificaMinhasChances();
     // Se existe movimento final e não é a primeira jogada, termina!
     if (nivel > 0 && movFinal.length > 0) {
       linha = movFinal.split('')[0];
